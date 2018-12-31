@@ -26,6 +26,10 @@ class homeController extends controller{
             $aulas = new Aulas();
             
             $array = $aulas->getAulas($id_modulo);
+            
+            echo json_encode($array);
+            exit;
+            
         }
     }
    
