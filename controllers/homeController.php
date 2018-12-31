@@ -18,6 +18,14 @@ class homeController extends controller{
         $this->loadTemplate('home', $data);
         
     }
+    
+    public function pegar_aulas(){
+        if(isset($_POST['modulo'])){
+            $id_modulo = addslashes($_POST['modulo']);
+            
+            
+        }
+    }
    
 }
 
