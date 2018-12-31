@@ -1,6 +1,6 @@
 <form method="POST">
 Escolha o módulo:<br/>
-<select name="modulos" id="modulos" onselect="pegarAulas(this)">
+<select name="modulos" id="modulos" onchange="pegarAulas(this)">
 	<option></option>
 	<?php foreach ($modulos as $modulo): ?>
 	<option value="<?php echo $modulo['id']?>"><?php echo $modulo['titulo']?></option>
