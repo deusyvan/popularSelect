@@ -23,7 +23,9 @@ class homeController extends controller{
         if(isset($_POST['modulo'])){
             $id_modulo = addslashes($_POST['modulo']);
             
+            $aulas = new Aulas();
             
+            $array = $aulas->getAulas($id_modulo);
         }
     }
    
