@@ -1,5 +1,13 @@
+<form method="POST">
+Escolha o módulo:<br/>
+<select name="modulos">
 
-<h1>Olá, </h1>
-<h3>Sua página</h3>
+</select><br/><br/>
 
-<img src="http://www.google.com.br/google.jpg" />
+Escolha a aula:<br/>
+<select name="aulas">
+
+</select><br/><br/>
+
+<input type="submit" value="Enviar">
+</form>

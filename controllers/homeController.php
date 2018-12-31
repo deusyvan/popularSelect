@@ -15,7 +15,7 @@ class homeController extends controller{
         
         $data['modulos'] = $modulos->getList();
       
-        $this->loadTemplate('home', $dados);
+        $this->loadTemplate('home', $data);
         
     }
    
