@@ -1,8 +1,10 @@
 <?php 
 class controller {
     
-    public function __construct(){
-        
+    protected $db;
+    
+    public function __construct() {
+        global $config;
     }
     
     public function loadView($viewName, $viewData = array()){

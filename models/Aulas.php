@@ -1,6 +1,6 @@
 <?php 
 
-class Aulas extends  model{
+class Aulas extends model{
     
     public function getAulas($id_modulo){
         

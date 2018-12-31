@@ -1,6 +1,9 @@
 <?php 
 require 'environment.php';
 
+global $config;
+global $db;
+
 $config = array();
 
 if(ENVIRONMENT == 'development'){
@@ -20,14 +23,7 @@ if(ENVIRONMENT == 'development'){
     $config['dbpass'] = 'admin@12';
 }
 
-global $db;
-try {
-    
-    $db = new PDO("mysql:dbname=".$config['dbname'].";host=".$config['host'], $config['dbuser'], $config['dbpass']);
-    
-} catch ( PDOException $e) {
-    echo "ERRO: ".$e->getMessage();
-    exit;
-}
+$db = new PDO("mysql:dbname=".$config['dbname'].";charset=utf8;host=".$config['host'], $config['dbuser'], $config['dbpass']);
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 ?>

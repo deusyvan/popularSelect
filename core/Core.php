@@ -4,10 +4,7 @@ class Core {
     
     public function run(){
         
-        $url = '/';
-        if (isset($_GET['url'])){
-            $url .= $_GET['url'];
-        }
+        $url = '/'.(isset($_GET['url'])?$_GET['url']:'');
         
         $params = array();
         
@@ -18,7 +15,7 @@ class Core {
             $currentController = $url[0].'Controller';
             array_shift($url);
             
-            if (isset($url[0]) && !empty($url[0])){
+            if (isset($url[0]) && $url[0] != '/'){
                 $currentAction = $url[0];
                 array_shift($url);
             } else {
@@ -35,7 +32,16 @@ class Core {
             $currentAction = 'index';
         }
         
+        if(!file_exists('controllers/'.$currentController.'.php')) {
+            $currentController = 'notFoundController';
+            $currentAction = 'index';
+        }
+        
         $c = new $currentController();
+        
+        if(!method_exists($c, $currentAction)) {
+            $currentAction = 'index';
+        }
         
         call_user_func_array(array($c,$currentAction), $params);
     }
